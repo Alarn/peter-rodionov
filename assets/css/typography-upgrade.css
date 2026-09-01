@@ -1,0 +1,77 @@
+/* ==========================================================================
+   LUXURY EDITORIAL TYPOGRAPHY & EXECUTIVE DESIGN SYSTEM
+   Featuring: 'Syne' (Ultra-stylish display headlines) + 'Manrope' (High-legibility premium body)
+   and 'Inter' for technical accents & badges
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap');
+
+:root {
+  /* Fonts */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Colors */
+  --bg-page: #edf6fd;
+  --bg-white: #ffffff;
+  --color-primary: #0284c7;
+  --color-primary-dark: #0369a1;
+  --color-accent-blue: #38bdf8;
+  --color-sage: #10b981;
+  --color-sage-bg: #ecfdf5;
+  --color-amber: #f59e0b;
+
+  --text-main: #0a1628;
+  --text-secondary: #3b4b66;
+  --text-muted: #627494;
+
+  --border-light: rgba(226, 235, 248, 0.9);
+  --shadow-sm: 0 4px 14px rgba(10, 22, 40, 0.04);
+  --shadow-md: 0 14px 38px -6px rgba(10, 22, 40, 0.08);
+  --shadow-lg: 0 24px 60px -12px rgba(10, 22, 40, 0.14);
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 9999px;
+  --max-w: 1280px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--bg-page);
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, .stage-logo-text, .metric-strip-num {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+.site-container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}

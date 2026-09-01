@@ -1,0 +1,6 @@
+# Build & Development Scripts (Do not deploy to production)
+*.py
+__pycache__/
+*.docx
+.DS_Store
+Thumbs.db

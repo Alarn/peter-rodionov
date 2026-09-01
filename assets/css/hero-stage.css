@@ -1,0 +1,384 @@
+/* ==========================================================================
+   BIOTECH HERO SECTION & QUOTE SLIDER STYLES
+   Peter Rodionov Official Website
+   ========================================================================== */
+
+/* Hero Stage Canvas */
+.hero-stage {
+  position: relative;
+  background: linear-gradient(135deg, #4fa8f7 0%, #308ff4 40%, #5cbcf8 70%, #9ddbfd 100%);
+  border-radius: var(--radius-lg);
+  color: #ffffff;
+  padding: 64px 56px 72px;
+  overflow: hidden;
+  margin-top: calc(var(--header-height) + 16px);
+  margin-bottom: 50px;
+  box-shadow: 0 24px 60px -12px rgba(32, 130, 235, 0.38);
+}
+
+/* Kinetic Rings */
+.hero-rings-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ring-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+}
+
+.ring-circle-1 {
+  width: 540px;
+  height: 540px;
+  bottom: -160px;
+  left: 6%;
+  animation: floatRing 12s infinite ease-in-out;
+}
+
+.ring-circle-2 {
+  width: 420px;
+  height: 420px;
+  bottom: -60px;
+  left: 18%;
+  border-color: rgba(255, 255, 255, 0.16);
+  animation: floatRing 16s infinite ease-in-out reverse;
+}
+
+@keyframes floatRing {
+  0%, 100% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.05) translate(10px, -15px); }
+}
+
+.hero-grid-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left Column */
+.hero-left-content h1 {
+  font-size: clamp(2.6rem, 4.2vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin-bottom: 22px;
+}
+
+.hero-lead-text {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 32px;
+  max-width: 48ch;
+}
+
+.hero-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.btn-pill-white {
+  background: #ffffff;
+  color: #0284c7;
+  font-weight: 700;
+  padding: 15px 34px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+}
+
+.btn-pill-white:hover {
+  color: #0369a1;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+}
+
+.btn-pill-trans {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 15px 28px;
+  border-radius: var(--radius-pill);
+  transition: all 0.25s ease;
+}
+
+.btn-pill-trans:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+}
+
+/* Glass Quote Carousel */
+.hero-quote-glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.quote-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.quote-pill-badge {
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.quote-pagination {
+  display: flex;
+  gap: 8px;
+}
+
+.quote-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quote-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.quote-item {
+  display: none;
+  animation: quoteFade 0.5s ease;
+}
+
+.quote-item.active {
+  display: block;
+}
+
+@keyframes quoteFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quote-text {
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.quote-author-source {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Right Dashboard Card */
+.biotech-dashboard-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: 0 30px 70px -15px rgba(12, 32, 64, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(226, 235, 248, 0.9);
+  padding-bottom: 18px;
+}
+
+.dashboard-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dashboard-avatar-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-sky);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+}
+
+.dashboard-user-meta h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+  color: var(--text-main);
+}
+
+.dashboard-user-meta span {
+  font-size: 0.82rem;
+  color: var(--accent-sky);
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.status-gmp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+/* SVG Waves Card */
+.bioprocess-chart-card {
+  background: #f8fbfe;
+  border: 1px solid rgba(226, 235, 248, 0.9);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  position: relative;
+}
+
+.chart-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.chart-card-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.chart-legend-group {
+  display: flex;
+  gap: 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot-amber { width: 8px; height: 8px; border-radius: 50%; background: #f59e0b; }
+.legend-dot-cyan { width: 8px; height: 8px; border-radius: 50%; background: #0284c7; }
+
+.bioprocess-svg-canvas {
+  width: 100%;
+  height: 100px;
+}
+
+/* Micro Stats */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.stat-metric-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 235, 248, 0.9);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  box-shadow: 0 2px 8px rgba(12, 32, 64, 0.02);
+}
+
+.stat-metric-tag {
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.stat-metric-num {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--accent-sky);
+  line-height: 1;
+}
+
+.stat-metric-desc {
+  font-size: 0.72rem;
+  color: var(--accent-sage);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* Platform Tag Pills */
+.platform-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.platform-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pill-blue { background: #f0f9ff; color: #0284c7; }
+.pill-green { background: #ecfdf5; color: #065f46; }
+.pill-amber { background: #fffbeb; color: #b45309; }
+
+@media (max-width: 1080px) {
+  .hero-grid-layout {
+    grid-template-columns: 1fr;
+  }
+  .hero-stage {
+    padding: 40px 24px;
+  }
+}
