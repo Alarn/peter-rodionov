@@ -91,6 +91,8 @@
   gap: calc(8px + 0.3vw);
   color: #ffffff;
   text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .stage-logo-icon {
@@ -107,6 +109,7 @@
   font-weight: 800;
   color: #ffffff;
   font-family: var(--font-main) !important;
+  flex-shrink: 0;
 }
 
 .stage-logo-text {
@@ -114,6 +117,7 @@
   font-size: calc(1.1rem + 0.3vw);
   font-weight: 700 !important;
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .stage-nav-links {

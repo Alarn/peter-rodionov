@@ -533,6 +533,8 @@ body {
   gap: calc(8px + 0.3vw);
   color: #ffffff;
   text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .inner-nav-card .stage-logo-icon {
@@ -548,12 +550,14 @@ body {
   font-size: calc(1rem + 0.2vw);
   font-weight: 800;
   color: #ffffff;
+  flex-shrink: 0;
 }
 
 .inner-nav-card .stage-logo-text {
   font-size: calc(1.1rem + 0.3vw);
   font-weight: 700;
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .inner-nav-card .stage-nav-links {
