@@ -14,22 +14,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 2. Mobile Nav Drawer Toggle
-  const mobileToggle = document.querySelector('.mobile-toggle');
-  const mobileDrawer = document.querySelector('.mobile-nav-drawer');
+  // 2. Mobile Nav Drawer Toggle (Universal support for stage header)
+  const mobileToggle = document.querySelector('.stage-mobile-toggle') || document.querySelector('.mobile-toggle');
+  const mobileDrawer = document.querySelector('.stage-mobile-drawer') || document.querySelector('.mobile-nav-drawer');
+  const mobileBackdrop = document.querySelector('.stage-mobile-backdrop');
 
-  mobileToggle?.addEventListener('click', () => {
-    mobileDrawer?.classList.toggle('open');
-    const spans = mobileToggle.querySelectorAll('span');
-    if (mobileDrawer?.classList.contains('open')) {
-      spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
-      spans[1].style.opacity = '0';
-      spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
-    } else {
-      spans[0].style.transform = 'none';
-      spans[1].style.opacity = '1';
-      spans[2].style.transform = 'none';
-    }
+  function toggleDrawer() {
+    const isOpen = mobileDrawer?.classList.toggle('open');
+    mobileToggle?.classList.toggle('active', isOpen);
+    mobileBackdrop?.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  function closeDrawer() {
+    mobileDrawer?.classList.remove('open');
+    mobileToggle?.classList.remove('active');
+    mobileBackdrop?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  mobileToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleDrawer();
+  });
+
+  mobileBackdrop?.addEventListener('click', closeDrawer);
+
+  // Close on link click inside drawer
+  const drawerLinks = mobileDrawer?.querySelectorAll('a');
+  drawerLinks?.forEach(link => {
+    link.addEventListener('click', closeDrawer);
   });
 
   // 3. High-End Precision Scroll Reveal with Intersection Observer

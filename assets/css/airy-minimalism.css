@@ -602,6 +602,163 @@ body {
   transform: translateY(-2px);
 }
 
+/* Stage Mobile Burger Toggle & Full Drawer */
+.stage-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stage-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+  z-index: 1001;
+}
+
+.stage-mobile-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #38bdf8;
+}
+
+.stage-mobile-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stage-mobile-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.stage-mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.stage-mobile-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Stage Mobile Backdrop Overlay */
+.stage-mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 26, 50, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease;
+  z-index: 998;
+}
+
+.stage-mobile-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Stage Mobile Drawer Menu */
+.stage-mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(85vw, 360px);
+  background: #091a32;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+  padding: calc(24px + 1vh) calc(20px + 1vw);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.stage-mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.stage-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 24px;
+}
+
+.stage-drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.stage-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.stage-drawer-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.96rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.stage-drawer-link:hover,
+.stage-drawer-link.active {
+  background: rgba(2, 132, 199, 0.2);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: translateX(4px);
+}
+
+.stage-drawer-footer {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 1024px) {
+  .stage-mobile-toggle {
+    display: flex;
+  }
+}
+
 .inner-breadcrumbs {
   display: flex;
   align-items: center;
